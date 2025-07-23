@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>LEE YIN TUNG'S PORTFOLIO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="Img/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial;
+            padding: 0px;
+            background: #E6E6FA;
+            color: #333;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 14px;
+            padding: 15px;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        /*Scroll*/
+        ::-webkit-scrollbar {
+            width: 20px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #800080;
+            border-radius: 20px;
+            border: 6px solid transparent;
+            background-clip: content-box;
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background-color: #c275c2;
+            }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap
+        }
+
+        .mySlides1 {
+            display: none
+        }
+
+        .mySlides2 {
+            display: none
+        }
+
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin: 50px;
+            margin-bottom: -15px;
+            margin-top: -2px;
+        }
+
+        .slideshow-container1 {
+            max-width: 100%;
+            position: relative;
+            margin: auto;
+            margin-bottom: -80px;
+        }
+
+        .slideshow-container2 {
+            max-width: 100%;
+            position: relative;
+            margin: 50px;
+            margin-bottom: -15px;
+            margin-top: -2px;
+        }
+
+        .slideshow-container3 {
+            max-width: 100%;
+            position: relative;
+            margin: auto;
+            margin-bottom: -80px;
+        }
+
+        .section-header {
+            color: #800080;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .rightcolumn p {
+            padding-left: 0px;
+            text-align: justify;
+            margin-bottom: 5px;
+        }
+
+        .rightcolumn li {
+            padding-left: 0px;
+            text-align: justify;
+            margin-bottom: 5px;
+        }
+
+        .rightcolumn h4 {
+            color: #c275c2
+        }
+
+        /* Create two unequal columns that floats next to each other */
+        /* Left column */
+        .leftcolumn {
+            float: left;
+            width: 50%;
+            margin-top: 80px;
+        }
+
+        /* Right column */
+        .rightcolumn {
+            float: left;
+            width: 40%;
+            margin-top: 60px;
+        }
+
+        /* Add a card effect for articles */
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .card1 {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        /* Clear floats after the columns */
+        .prev1,
+        .next1 {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .prev2,
+        .next2 {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        /* Position the "next button" to the right */
+        .next1 {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+            /* On hover, add a black background color with a little bit see-through */
+            .prev1:hover,
+            .next1:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+
+        .next2 {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+            /* On hover, add a black background color with a little bit see-through */
+            .prev2:hover,
+            .next2:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+        /* Caption text */
+        .text1 {
+            color: #ffffff;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .text2 {
+            color: #ffffff;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+        /* Number text (1/3 etc) */
+        .numbertext1 {
+            color: #ffffff;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        .numbertext2 {
+            color: #ffffff;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+        /* The dots/bullets/indicators */
+        .dot1 {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #999999;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+            .active,
+            .dot1:hover {
+                background-color: #111111;
+            }
+
+        .dot2 {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #999999;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+            .active,
+            .dot2:hover {
+                background-color: #111111;
+            }
+
+        .active1 {
+            background-color: #333;
+        }
+
+        .topnav a.split {
+            float: right;
+        }
+
+        .resume-link {
+            float: right;
+        }
+
+        /* Fading animation */
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 3s;
+            animation-name: fade;
+            animation-duration: 3s;
+        }
+
+        .menu-toggle i {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .active1 .menu-toggle i {
+            transform: rotate(90deg);
+        }
+        /* Initially hide the element and define the animation */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 1s ease-out;
+        }
+
+            /* Add the animation when the element is visible in the viewport */
+            .animate-on-scroll.show {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        @-webkit-keyframes fade {
+            from {
+                opacity: .5
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .5
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+        /* Add styles for the body and the navigation menu */
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .row1 {
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .topnav1 {
+            list-style: none;
+            display: flex;
+            align-items: center; /* Center items vertically */
+            margin: 0;
+            padding: 0;
+            float: left;
+        }
+
+            .topnav1 a {
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 18px;
+            }
+
+            .topnav1 img{
+            border-radius: 100%;
+            max-width: 100%;
+            height: 50px;
+            padding-right: 0px;
+            padding-left: 10px;
+        }
+        .topnav {
+            list-style: none;
+            display: flex;
+            align-items: center; /* Center items vertically */
+            margin: 0;
+            padding: 0;
+            float: right;
+            font-family: Corbel
+        }
+
+            .topnav li a {
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 20px 16px;
+                text-decoration: none;
+                font-size: 18px;
+                text-transform: uppercase;
+            }
+
+                /*The colour of tabs*/
+                .topnav li a:hover {
+                    color: #800080;
+                }
+
+                .topnav li a.active {
+                    background-color: #04AA6D;
+                    color: white;
+                }
+
+            .topnav .icon {
+                display: none;
+            }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            position: absolute;
+            transform: translateY(-50%);
+            color: white;
+        }
+
+            .menu-toggle i {
+                padding-top: 10px;
+                font-size: 28px;
+            }
+
+        .topnav a.split {
+            float: right;
+        }
+
+        .topnav img {
+            float: left;
+            border-radius: 100%;
+            max-width: 100%;
+            height: 50px;
+            margin-right: 15px;
+            margin-left: 30px;
+            order: -1; /* Move the logo image to the left */
+        }
+
+        /* Add media query for screens with width less than or equal to 1200px */
+        @media screen and (max-width: 1200px) {
+
+            nav ul.active {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                background-color: #f9c74f;
+                /* change to the color of your choice */
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                text-align: center;
+                position: fixed;
+                top: 50px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #fff;
+                z-index: 99;
+                transition: all 0.3s ease-in-out;
+                /* add transition effect with desired speed */
+            }
+
+            .menu-toggle {
+                display: block;
+                position: fixed;
+                top: 28px;
+                right: 20px;
+                z-index: 999;
+                /*change to the color of your choice */ padding: 10px;
+                transition: all 0.3s ease-in-out;
+                /* add transition ffect with desired speed */
+            }
+                /* Change the style of the menu toggle button when it's active */
+                .menu-toggle.active {
+                    transform: rotate(45deg);
+                    background-color: #df2edf; /* change to the color of your choice */
+                }
+
+            nav li {
+                width: 100%;
+                border-bottom: 1px solid #df2edf;
+            }
+
+                nav li a {
+                    padding: 10px;
+                }
+
+            nav ul.hidden {
+                display: none;
+            }
+
+            /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+            @media screen and (max-width: 1200px) {
+                .leftcolumn, .rightcolumn {
+                    width: 100%;
+                    padding: 0;
+                }
+                .dot1, .dot2{
+            cursor: pointer;
+            height: 8px;
+            width: 8px;
+            }
+            .slideshow-container, .slideshow-container2 {
+            margin-bottom:-30px;
+            }
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="row1">
+        <div class="top">
+            <div class="topnav1">
+                <img src="Img/logo.png" alt="logo">
+                <a href="#" class="resume-link" style="font-size:25px">YinTung's Portfolio</a>
+            </div>
+
+            <div class="menu-toggle">
+                <i class="fa fa-bars"></i>
+            </div>
+            <nav>
+                <ul class="topnav hidden">
+                    <li><a href="index.html" class="split">Home</a></li>
+                    <li><a href="LYT About.html" class="split">About</a></li>
+                    <li><a href="LYT Employment History.html" class="split">Employment History</a></li>
+                    <li><a href="LYT Education.html" class="split">Education</a></li>
+                    <li><a href="LYT Achievement.html" class="split">Achievement</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="leftcolumn">
+            <div class="slideshow-container">
+                <div class="mySlides1 fade">
+                    <div class="numbertext1">1 / 4</div>
+                    <img src="Img/Achievement/Concrete.jpg" style="width: 100%">
+                    <div class="text1">Precast Concrete Competition</div>
+                </div>
+                <div class="mySlides1 fade">
+                    <div class="numbertext1">2 / 4</div>
+                    <img src="Img/Achievement/PearlCity.jpg" style="width: 100%">
+                    <div class="text1">Site Vist to Pearl City</div>
+                </div>
+                <div class="mySlides1 fade">
+                    <div class="numbertext1">3 / 4</div>
+                    <img src="Img/Achievement/Aspen.jpg" style="width: 100%">
+                    <div class="text1">Industrial Visit to Aspen Vision City</div>
+                </div>
+                <div class="mySlides1 fade">
+                    <div class="numbertext1">4 / 4 </div>
+                    <img src="Img/Achievement/30th.jpg" style="width: 100%">
+                    <div class="text1">30th Anniversary USM Civil Engineering School Opening Day</div>
+                </div>
+                <a class="prev1" onclick="plusSlides(1,-1)">&#10094;</a>
+                <a class="next1" onclick="plusSlides(1,1)">&#10095;</a>
+            </div>
+            <br>
+
+            <div class="slideshow-container1">
+                <div style="text-align:center">
+                    <span class="dot1" onclick="currentSlide(1,1)"></span>
+                    <span class="dot1" onclick="currentSlide(2,1)"></span>
+                    <span class="dot1" onclick="currentSlide(3,1)"></span>
+                    <span class="dot1" onclick="currentSlide(4,1)"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="rightcolumn">
+            <div class="card animate-on-scroll">
+                <h2 class="section-header">EXTRA-CURRICULAR ACTIVITIES</h2>
+                <h4>President of USM American Soicety of Civil Engineers Student Chapter 2019/2020</h4>
+                <ul>
+                    <li>
+                        Organised a site vist to Pearl City so that committee can deepen thier understanding on constuction field.
+                        Pearl City is a township project launched by several companies under Tambun Indah Group, locating at Simpang Ampat, Penang.
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        Took part in industrial visit to Aspen Vision City, Batu Kawan, Penang. The insight of quality planning, quality assurance and quality control were gained there.
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        Organised precast concrete competition themed “Precast Concrete + Structural Art” to unleash participants' idea in precast concrete.
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        Assisted USM Civil Engineering School to plan its 30th Anniversary Opening Day. Secondary school students were invited to celebrate the anniversary together.
+                        In order to instil civil engineering knowledge to secondary school students, they were guided to visit laboratories. Lastly, a competition of building newspaper bridges were
+                        held for them so that their creativity, teamwork and passion can be boosted.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="leftcolumn">
+            <div class="slideshow-container2">
+                <div class="mySlides2 fade">
+                    <div class="numbertext2">1 / 3</div>
+                    <img src="Img/Achievement/USM.jpg" style="width: 100%">
+                    <div class="text2">USM Build and Break Competition 2018</div>
+                </div>
+                <div class="mySlides2 fade">
+                    <div class="numbertext2">2 / 3</div>
+                    <img src="Img/Achievement/Bangkok.jpg" style="width: 100%">
+                    <div class="text2">Student Mobility Program at KMUTT, Thailand</div>
+                </div>
+                <div class="mySlides2 fade">
+                    <div class="numbertext2">3 / 3</div>
+                    <img src="Img/Achievement/UTM.jpg" style="width: 100%">
+                    <div class="text2">UTM International Bridge Competition 2019</div>
+                </div>
+                <a class="prev2" onclick="plusSlides(2,-1)">&#10094;</a>
+                <a class="next2" onclick="plusSlides(2,1)">&#10095;</a>
+            </div>
+            <br>
+
+            <div class="slideshow-container3">
+                <div style="text-align:center">
+                    <span class="dot2" onclick="currentSlide(1,1)"></span>
+                    <span class="dot2" onclick="currentSlide(2,1)"></span>
+                    <span class="dot2" onclick="currentSlide(3,1)"></span>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="rightcolumn">
+            <div class="card animate-on-scroll">
+                <h2 class="section-header">INVOLVEMENT/ ACHIEVEMENT</h2>
+                <ul>
+                    <li>
+                        Involved in Student Mobility Program held at King Mongkut’s University of Technology,
+                        Bangkok, Thailand
+                    </li>
+
+                    <li>
+                        Take part in UTM International Bridge Competition 2019
+                    </li>
+                    <li>
+                        Second Runner up for USM Build and Break Competition 2018
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <!-- your footer content here -->
+        <p>Copyright©️ Lee Yin Tung's Portfolio</p>
+    </footer>
+</body>
+</html>
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.topnav');
+
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active1');
+        navigation.classList.toggle('active1');
+        navigation.classList.toggle('hidden'); // add or remove the "hidden" class based on the "active" class
+        const icon = menuToggle.querySelector('i');
+        if (navigation.classList.contains('active1')) {
+            icon.classList.replace('fa-bars', 'fa-times');
+            icon.style.transform = 'rotate(0deg)';
+        } else {
+            icon.classList.replace('fa-times', 'fa-bars');
+            icon.style.transform = 'rotate(0deg)';
+        }
+    });
+</script>
+<script>
+    // Select the elements with the 'animate-on-scroll' class
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+    // Define the intersection observer
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add the 'show' class when the element is visible
+                entry.target.classList.add('show');
+            } else {
+                // Remove the 'show' class when the element is not visible
+                entry.target.classList.remove('show');
+            }
+        });
+    });
+
+    // Observe the animated elements
+    animatedElements.forEach(element => {
+        observer.observe(element);
+    });
+</script><script>    let slideIndex1 = 0;    let slideIndex2 = 0;    let timeoutId1 = null;    let timeoutId2 = null;    const slides1 = document.getElementsByClassName("mySlides1");    const slides2 = document.getElementsByClassName("mySlides2");    const dots1 = document.getElementsByClassName("dot1");    const dots2 = document.getElementsByClassName("dot2");    showSlides(1);    showSlides(2);    function currentSlide(index, slideshow) {        if (slideshow === 1) {            slideIndex1 = index;            showSlides(1);        }        if (slideshow === 2) {            slideIndex2 = index;            showSlides(2);        }    }    function plusSlides(slideshow, step) {        if (slideshow === 1) {            if (step < 0) {                slideIndex1 -= 2;                if (slideIndex1 < 0) {                    slideIndex1 = slides1.length - 1;                }            }            showSlides(1);        }        if (slideshow === 2) {            if (step < 0) {                slideIndex2 -= 2;                if (slideIndex2 < 0) {                    slideIndex2 = slides2.length - 1;                }            }            showSlides(2);        }    }    function showSlides(slideshow) {        let slideIndex;        let timeoutId;        if (slideshow === 1) {            slideIndex = slideIndex1;            timeoutId = timeoutId1;        } else if (slideshow === 2) {            slideIndex = slideIndex2;            timeoutId = timeoutId2;        }        const slides = slideshow === 1 ? slides1 : slides2;        const dots = slideshow === 1 ? dots1 : dots2;        for (let i = 0; i < slides.length; i++) {            slides[i].style.display = "none";            dots[i].classList.remove('active');        }        slideIndex++;        if (slideIndex > slides.length) {            slideIndex = 1;        }        slides[slideIndex - 1].style.display = "block";        dots[slideIndex - 1].classList.add('active');        if (slideshow === 1) {            slideIndex1 = slideIndex;            timeoutId1 = setTimeout(() => showSlides(1), 5000);        } else if (slideshow === 2) {            slideIndex2 = slideIndex;            timeoutId2 = setTimeout(() => showSlides(2), 5000);        }       if (timeoutId) {           clearTimeout(timeoutId);       }}</script>
+
+

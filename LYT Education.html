@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>LEE YIN TUNG'S PORTFOLIO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="Img/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial;
+            padding: 0px;
+            background: #E6E6FA;
+            color: #333;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 14px;
+            padding: 15px;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        /*Scroll*/
+        ::-webkit-scrollbar {
+            width: 20px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #800080;
+            border-radius: 20px;
+            border: 6px solid transparent;
+            background-clip: content-box;
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background-color: #c275c2;
+            }
+
+            .container {
+            display: flex;
+            flex-wrap: wrap
+        }
+
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin: 50px;
+            margin-bottom: -15px;
+            margin-top: -2px;
+        }
+
+        .slideshow-container1 {
+            max-width: 100%;
+            position: relative;
+            margin: auto;
+            margin-bottom: -80px;
+        }
+
+        .section-header {
+            color: #800080;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .rightcolumn p {
+            padding-left: 0px;
+            text-align: justify;
+            margin-bottom: 5px;
+        }
+
+        /* Create two unequal columns that floats next to each other */
+        /* Left column */
+        .leftcolumn {
+            float: left;
+            width: 50%;
+            margin-top: 80px;
+        }
+
+        /* Right column */
+        .rightcolumn {
+            float: left;
+            width: 40%;
+            margin-top: 60px;
+        }
+        /* Add a card effect for articles */
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .card1 {
+            background-color: #E6E6FA;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        /* Clear floats after the columns */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+            /* On hover, add a black background color with a little bit see-through */
+            .prev:hover,
+            .next:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+        /* Caption text */
+        .text {
+            color: #ffffff;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #ffffff;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+        /* The dots/bullets/indicators */
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #999999;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+            .active,
+            .dot:hover {
+                background-color: #111111;
+            }
+
+        .active1 {
+            background-color: #333;
+        }
+
+        .topnav a.split {
+            float: right;
+        }
+
+        .resume-link {
+            float: right;
+        }
+
+        /* Fading animation */
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 3s;
+            animation-name: fade;
+            animation-duration: 3s;
+        }
+
+        .menu-toggle i {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .active1 .menu-toggle i {
+            transform: rotate(90deg);
+        }
+        /* Initially hide the element and define the animation */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 1s ease-out;
+        }
+
+            /* Add the animation when the element is visible in the viewport */
+            .animate-on-scroll.show {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        @-webkit-keyframes fade {
+            from {
+                opacity: .5
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .5
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+        /* Add styles for the body and the navigation menu */
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .row1 {
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .topnav1 {
+            list-style: none;
+            display: flex;
+            align-items: center; /* Center items vertically */
+            margin: 0;
+            padding: 0;
+            float: left;
+        }
+
+            .topnav1 a {
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 18px;
+            }
+
+            .topnav1 img{
+            border-radius: 100%;
+            max-width: 100%;
+            height: 50px;
+            padding-right: 0px;
+            padding-left: 10px;
+        }
+
+        .topnav {
+            list-style: none;
+            display: flex;
+            align-items: center; /* Center items vertically */
+            margin: 0;
+            padding: 0;
+            float: right;
+            font-family: Corbel
+        }
+
+            .topnav li a {
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 20px 16px;
+                text-decoration: none;
+                font-size: 18px;
+                text-transform: uppercase;
+            }
+
+                /*The colour of tabs*/
+                .topnav li a:hover {
+                    color: #800080;
+                }
+
+                .topnav li a.active {
+                    background-color: #04AA6D;
+                    color: white;
+                }
+
+            .topnav .icon {
+                display: none;
+            }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            position: absolute;
+            transform: translateY(-50%);
+            color: white;
+        }
+
+            .menu-toggle i {
+                padding-top: 10px;
+                font-size: 28px;
+            }
+
+        .topnav a.split {
+            float: right;
+        }
+
+        .topnav img {
+            float: left;
+            border-radius: 100%;
+            max-width: 100%;
+            height: 50px;
+            margin-right: 15px;
+            margin-left: 30px;
+            order: -1; /* Move the logo image to the left */
+        }
+
+        /* Add media query for screens with width less than or equal to 1200px */
+        @media screen and (max-width: 1200px) {
+
+            nav ul.active {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                background-color: #f9c74f;
+                /* change to the color of your choice */
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                text-align: center;
+                position: fixed;
+                top: 50px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #fff;
+                z-index: 99;
+                transition: all 0.3s ease-in-out;
+                /* add transition effect with desired speed */
+            }
+
+            .menu-toggle {
+                display: block;
+                position: fixed;
+                top: 28px;
+                right: 20px;
+                z-index: 999;
+                /*change to the color of your choice */ padding: 10px;
+                transition: all 0.3s ease-in-out;
+                /* add transition ffect with desired speed */
+            }
+
+                /* Change the style of the menu toggle button when it's active */
+                .menu-toggle.active {
+                    transform: rotate(45deg);
+                    background-color: #df2edf; /* change to the color of your choice */
+                }
+
+            nav li {
+                width: 100%;
+                border-bottom: 1px solid #df2edf;
+            }
+
+                nav li a {
+                    padding: 10px;
+                }
+
+            nav ul.hidden {
+                display: none;
+            }
+
+            /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+            @media screen and (max-width: 1200px) {
+                .leftcolumn, .rightcolumn {
+                    width: 100%;
+                    padding: 0;
+                }
+                .dot {
+            cursor: pointer;
+            height: 8px;
+            width: 8px;
+            }
+            .slideshow-container {
+            margin-bottom:-30px;
+            }
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="row1">
+        <div class="top">
+            <div class="topnav1">
+                <img src="Img/logo.png" alt="logo">
+                <a href="#" class="resume-link" style="font-size:25px">YinTung's Portfolio</a>
+            </div>
+
+            <div class="menu-toggle">
+                <i class="fa fa-bars"></i>
+            </div>
+            <nav>
+                <ul class="topnav hidden">
+                    <li><a href="index.html" class="split">Home</a></li>
+                    <li><a href="LYT About.html" class="split">About</a></li>
+                    <li><a href="LYT Employment History.html" class="split">Employment History</a></li>
+                    <li><a href="LYT Education.html" class="split">Education</a></li>
+                    <li><a href="LYT Achievement.html" class="split">Achievement</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="leftcolumn">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 2</div>
+                    <img src="Img/Education/1.jpg" style="width: 100%">
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 2</div>
+                    <img src="Img/Education/My project (2).jpg" style="width: 100%">
+                </div>
+                
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+
+            <div class="slideshow-container1">
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(0)"></span>
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="rightcolumn">
+            <div class="card animate-on-scroll">
+                <h2 class="section-header">EDUCATION</h2>
+                <h4>UNIVERSITY OF MALAYA (UM), KUALA LUMPUR</h4>
+                <ul>
+                    <li>
+                        CGPA with Honours: 3.91
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        Consistent Dean's Lister
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        Final Year Project Title: Enhance BIM Design Coordination: Machine Learning For Accurate Clash Detection 
+                    </li>
+                    <p1>
+                        Description: "To compare the precision, recall, mAP50 and mAP50-95 of YOLO models in identifying accurate
+                        clashes from Naviswork software.
+                        "
+                    </p1>
+                </ul>
+
+                <h4>UNIVERSITY OF SCIENCE MALAYSIA (USM), NIBONG TEBAL PINANG</h4>
+                <ul>
+                    <li>
+                        CGPA with Honours: 3.82
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        Consistent Dean's Lister
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        Final Year Project Title: Modelling Sustainable Stormwater System using SWMM
+                    </li>
+                    <p1>
+                        Description: "To evaluate the effectiveness of drainage system and determine the runoff quantity control of retention pond for 10-, 50- and 100-years ARI."
+                    </p1>
+                </ul>
+                <h4>SMK KETARI, BENTONG, PAHANG </h4>
+                <ul>
+                    <li>
+                        STPM (CGPA: 3.67)
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        MUET Band 4
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        SPM: 10As1B
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <footer>
+        <!-- your footer content here -->
+        <p>Copyright©️ Lee Yin Tung's Portfolio</p>
+    </footer>
+</body>
+</html>
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.topnav');
+
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active1');
+        navigation.classList.toggle('active1');
+        navigation.classList.toggle('hidden'); // add or remove the "hidden" class based on the "active" class
+        const icon = menuToggle.querySelector('i');
+        if (navigation.classList.contains('active1')) {
+            icon.classList.replace('fa-bars', 'fa-times');
+            icon.style.transform = 'rotate(0deg)';
+        } else {
+            icon.classList.replace('fa-times', 'fa-bars');
+            icon.style.transform = 'rotate(0deg)';
+        }
+    });
+</script>
+<script>
+    let slideIndex = 0;
+    let timeoutId = null;
+    const slides = document.getElementsByClassName("mySlides");
+    const dots = document.getElementsByClassName("dot");
+
+    showSlides();
+    function currentSlide(index) {
+        slideIndex = index;
+        showSlides();
+    }
+    function plusSlides(step) {
+
+        if (step < 0) {
+            slideIndex -= 2;
+
+            if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }
+        }
+        showSlides();
+    }
+    function showSlides() {
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+            dots[i].classList.remove('active');
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].classList.add('active');
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
+        timeoutId = setTimeout(showSlides, 5000); // Change image every 5 seconds
+    }
+</script>
+<script>
+    // Select the elements with the 'animate-on-scroll' class
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+    // Define the intersection observer
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add the 'show' class when the element is visible
+                entry.target.classList.add('show');
+            }
+        });
+    });
+
+    // Observe the animated elements
+    animatedElements.forEach(element => {
+        observer.observe(element);
+    });
+</script>
+

@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">   <title>LEE YIN TUNG'S PORTFOLIO</title>   <meta name="viewport" content="width=device-width, initial-scale=1">    <link rel="icon" href="Img/logo.png">   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+       * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial;
+            padding: 0px;
+            background: #E6E6FA;
+            color: #333;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 14px;
+            padding: 15px;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        /*Scroll*/
+        ::-webkit-scrollbar {
+            width: 20px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #800080;
+            border-radius: 20px;
+            border: 6px solid transparent;
+            background-clip: content-box;
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background-color: #c275c2;
+            }
+
+        .active,
+        .dot:hover {
+            background-color: #111111;
+        }
+
+        .active1 {
+            background-color: #333;
+        }
+
+        .topnav a.split {
+            float: right;
+        }
+
+        .resume-link {
+            float: right;
+        }
+
+        .menu-toggle i {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .active1 .menu-toggle i {
+            transform: rotate(90deg);
+        }
+        /* Initially hide the element and define the animation */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 1s ease-out;
+        }
+
+            /* Add the animation when the element is visible in the viewport */
+            .animate-on-scroll.show {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        .row1 {
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .topnav1 {
+            list-style: none;
+            display: flex;
+            align-items: center; /* Center items vertically */
+            margin: 0;
+            padding: 0;
+            float: left;
+        }
+
+            .topnav1 a {
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 18px;
+            }
+
+            .topnav1 img{
+            border-radius: 100%;
+            max-width: 100%;
+            height: 50px;
+            padding-right: 0px;
+            padding-left: 10px;
+        }
+
+        .topnav {
+            list-style: none;
+            display: flex;
+            align-items: center; /* Center items vertically */
+            margin: 0;
+            padding: 0;
+            float: right;
+            font-family: Corbel
+        }
+
+            .topnav li a {
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 20px 16px;
+                text-decoration: none;
+                font-size: 18px;
+                text-transform: uppercase;
+            }
+
+                /*The colour of tabs*/
+                .topnav li a:hover {
+                    color: #800080;
+                }
+
+                .topnav li a.active {
+                    background-color: #04AA6D;
+                    color: white;
+                }
+
+            .topnav .icon {
+                display: none;
+            }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            position: absolute;
+            transform: translateY(-50%);
+            color: white;
+        }
+
+            .menu-toggle i {
+                padding-top: 10px;
+                font-size: 28px;
+            }
+
+        .topnav a.split {
+            float: right;
+        }
+
+        .topnav img {
+            float: left;
+            border-radius: 100%;
+            max-width: 100%;
+            height: 50px;
+            margin-right: 15px;
+            margin-left: 30px;
+            order: -1; /* Move the logo image to the left */
+        }
+
+        .container {
+            margin: 0 auto;
+            max-width: 960px;
+            padding: 50px;
+        }
+
+        .container-fluid img {
+            border-radius: 100%;
+            max-width: 100%;
+            height: 50px;
+            padding-right: 15px;
+        }
+
+        .profile {
+            display: flex;
+            margin-bottom: 50px;
+            margin-top: 50px;
+        }
+
+        .profile-img {
+            flex-basis: 20%;
+            margin-right: 30px;
+        }
+
+            .profile-img img {
+                border-radius: 100%;
+                width: 240px; /* set a fixed width */
+                height: 240px; /* set a fixed height */
+                object-fit: cover; /* preserve aspect ratio and crop as needed */
+            }
+
+        .profile-details {
+            flex-basis: 70%;
+        }
+
+        .profile-name {
+            color: #800080;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .profile-job-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .profile-contact {
+            margin-top: 0px;
+        }
+
+            .profile-contact ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: block;
+                flex-wrap: wrap;
+            }
+
+            .profile-contact li {
+                flex-basis: 50%;
+                padding-right: 20px;
+                margin-bottom: 10px;
+            }
+
+                .profile-contact li a {
+                    color: #333;
+                    align-items: center;
+                }
+
+                .profile-contact li i {
+                    font-size: 8px;
+                    margin-right: 0px;
+                }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            color: #800080;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .section-content {
+            padding-left: 0px;
+            text-align: justify;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+            .section-content ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                margin-top: 10px;
+            }
+
+            .section-content li {
+                position: relative;
+                padding-left: 50px;
+                margin-bottom: 10px;
+                line-height: 1.5;
+            }
+
+                .section-content li:before {
+                    content: '';
+                    position: absolute;
+                    top: 5px;
+                    left: 10px;
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    background-color: #DDA0DD;
+                }
+
+            .section-content p {
+                margin-bottom: 10px;
+            }
+
+            .section-content li a {
+                color: #333;
+            }
+
+            .section-content p1 {
+                padding-left: 50px;
+                margin-bottom: 10px;
+            }
+
+            .section-content p2 {
+                padding-left: 155px;
+                margin-bottom: 20px;
+            }
+
+            .section-content h4 {
+                color: #DDA0DD;
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .section-content a {
+                color: #800080;
+                padding-left: 0px;
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+        .section-content1 {
+            padding-left: 330px;
+            font-size: 12px;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .section-content2 a {
+            padding-left: 330px;
+            font-size: 18px;
+            color: #800080;
+            margin-bottom: 10px;
+            text-decoration-line: underline
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 20px;
+            color: #fff;
+            background-color: #800080;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.2s ease-in-out;
+            animation: bounce 1s infinite;
+            z-index: 1;
+        }
+
+        /* Add media query for screens with width less than or equal to 1200px */
+        @media screen and (max-width: 1200px) {
+
+            nav ul.active {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                background-color: #f9c74f;
+                /* change to the color of your choice */
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                text-align: center;
+                position: fixed;
+                top: 50px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #fff;
+                z-index: 99;
+                transition: all 0.3s ease-in-out;
+                /* add transition effect with desired speed */
+            }
+
+            .menu-toggle {
+                display: block;
+                position: fixed;
+                top: 28px;
+                right: 20px;
+                z-index: 999;
+                /*change to the color of your choice */ padding: 10px;
+                transition: all 0.3s ease-in-out;
+                /* add transition ffect with desired speed */
+            }
+       
+                /* Change the style of the menu toggle button when it's active */
+                .menu-toggle.active {
+                    transform: rotate(45deg);
+                    background-color: #df2edf; /* change to the color of your choice */
+                }
+
+            nav li {
+                width: 100%;
+                border-bottom: 1px solid #df2edf;
+            }
+
+                nav li a {
+                    padding: 10px;
+                }
+
+            nav ul.hidden {
+                display: none;
+            }
+        @media only screen and (max-width: 600px) {
+        .section-header {
+          font-size: 1.5rem;
+        }
+        .section-content {
+          font-size: 1rem;
+        }
+        }
+       /* Styles for mobile screens */
+@media (max-width: 768px) {
+  .profile {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-details {
+    margin-left: 0;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .profile-contact {
+    text-align: center;
+  }
+}
+        }
+    </style>
+
+</head>
+<body>
+    <div class="row1">
+        <div class="top">
+            <div class="topnav1">
+                <img src="Img/logo.png" alt="logo">
+                <a href="#" class="resume-link" style="font-size:25px">YinTung's Portfolio</a>
+            </div>
+
+            <div class="menu-toggle">
+                <i class="fa fa-bars"></i>
+            </div>
+            <nav>
+                <ul class="topnav hidden">
+                    <li><a href="index.html" class="split">Home</a></li>
+                    <li><a href="LYT About.html" class="split">About</a></li>
+                    <li><a href="LYT Employment History.html" class="split">Employment History</a></li>
+                    <li><a href="LYT Education.html" class="split">Education</a></li>
+                    <li><a href="LYT Achievement.html" class="split">Achievement</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="profile">
+            <div class="profile-img">
+                <img src="Img/Profile pic.jpg" alt="Profile Picture">
+            </div>
+            <div class="profile-details">
+                <h1 class="profile-name"> LEE YIN TUNG</h1>
+
+                <div class="profile-contact">
+                    <ul>
+                        <li><a href="https://www.bing.com/maps?q=bandar+sri+damansara&FORM=HDRSC6&cp=3.183006%7E101.60002&lvl=15.1">Address: Bandar Baru Sri Damansara, 52200, Kuala Lumpur</a></li>
+                        <li><a href="mailto:yintung1997@gmail.com">Email: yintung1997@gmail.com</a></li>
+                        <li><a href="https://wa.link/5aatjk">Tel    : +60169636325</a></li>
+                        <li><a href="https://www.linkedin.com/in/yintunglee/">Follow YT Lee LinkedIn</a></li>
+                        <li><a href="https://drive.google.com/file/d/1NuK-rTIrtrqgudx8G40qjTV8eSfpNV81/view?usp=sharing">YT's RESUME</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="section animate-on-scroll">
+            <h2 class="section-header">PROFILE </h2>
+            <div class="section-content">
+                <p>
+                     As a certified civil engineer with a Master of Data Science from University of Malaya and bachelor’s degree 
+                    civil engineer from the University of Science Malaysia and four years of professional experience, I possess 
+                    a strong foundation in analytical problem-solving. My experience in civil engineering has honed my ability 
+                    to analyze complex data sets and develop data-driven solutions, a skill set I am eager to apply in a data 
+                    analyst role. My expertise spans both civil engineering and the application of data science, enabling me to 
+                    devise inventive solutions for intricate challenges. My unwavering dedication is directed towards consistently 
+                    delivering better outcomes that contribute to the betterment of society, positively impacting individuals and 
+                    communities. I am driven by a passion for using data to solve problems and improve processes, ultimately 
+                    contributing to better outcomes for individuals and communities.
+                </p>
+            </div>
+        </div>
+
+        <div class="section animate-on-scroll">
+            <h2 class="section-header">EMPLOYMENT HISTORY</h2>
+            <div class="section-content">
+                <div class="section-item">
+
+                    <h4>JACOBS CONSULTING SDN BHD, BRIDGE ENGINEER </h4>
+                    <p> March 2024 - Present</p>
+                    <p>Project Involved:</p>
+                    <ul>
+                        <li>SWWI Underbridge, Hong Kong</li>
+                        <li>San Tin Pedestrian Bridge, Hong Kong </li>
+                    </ul>
+
+                    <h4>GADANG HOLDING SDN BHD, PROJECT ENGINEER</h4>
+                    <p>March 2023 - November 2023</p>
+                    <p>Project Involved:</p>
+                    <ul>
+                        <li>Kwasa Land, Kota Damansara, Selangor Darul Ehsan</li>
+                        <li>Akasia, Semenyih, Selangor Darul Ehsan  </li>
+                    </ul>
+
+                    <h4>H&T CONSULTING ENGINEERS SDN BHD, BRIDGE ENGINEER</h4>
+                    <p>September 2021 - February 2023</p>
+                    <p>Project Involved:</p>
+                    <ul>
+                        <li>Malaysia-Seri Tanjung Pinang 2 (Gurney Bridge), Malaysia</li>
+                        <li>Jurong Region Line, J102, Singapore</li>
+                    </ul>
+
+                    <h4>COUNTRY GARDEN, INTERN</h4>
+                    <p>July 2020 - September 2020, Academic Intership Program </p>
+                    <p>Project Involved:</p>
+                    <ul>
+                        <li>Lake City KL North Sdn Bhd</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section animate-on-scroll">
+            <h2 class="section-header">EDUCATION</h2>
+            <div class="section-content">
+                <div class="section-item">
+                     <h4> Master (Data Science), University of Malaya, Kuala Lumpur</h4>
+                    <p>October 2023 - March 2025</p>
+                    <ul>
+                        <li>CGPA with honours (3.91)</li>
+                        <li>Final Year Project Title: Enhance BIM Design Coordination: Machine Learning For Accurate Clash Detection</li>
+
+                    </ul>
+
+                    <h4> Bachelor Engineering (Honours) (Civil Engineering), University of Science Malaysia, Nibong Tebal, Penang</h4>
+                    <p>September 2017 - August 2021</p>
+                    <ul>
+                        <li>CGPA with honours (3.82)</li>
+                        <li>Consistent Dean's Lister</li>
+                        <li>Final Year Project Title: Modelling Sustainable Stormwater System using SWMM</li>
+
+                    </ul>
+                    <h4> Sekolah Menengah Kebangsaan Ketari (Secondary School), Bentong, Pahang</h4>
+                    <p>November 2009 - November 2016</p>
+                    <ul>
+                        <li>STPM (3.67)</li>
+                        <li>MUET (Band 4)</li>
+                        <li>SPM (10As 1B)</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="section animate-on-scroll">
+            <h2 class="section-header">INVOLVEMENT/ ACHIEVEMENT</h2>
+            <div class="section-content">
+                <ul>
+                    <li>President of USM American Society of Civil Engineers Student Chapter 2019/2020</li>
+                    <li>
+                        Involved in Student Mobility Program held at King Mongkut's University of Technology, Bangkok, Thailand
+                    </li>
+                    <li>Take part in UTM International Bridge Competition 2019</li>
+                    <li>Second Runner up for USM Build and Break Competition 2018</li>
+                </ul>
+            </div>
+        </div>
+        <div class="section animate-on-scroll">
+            <h2 class="section-header">SKILLS</h2>
+            <div class="section-content">
+                <ul>
+                    <li>Python</li>
+                    <li>R Programming</li>
+                    <li>SQL</li>
+                    <li>HTML, CSS &Javascript</li>
+                    <li>Autodesk AutoCAD</li>
+                    <li>Microsoft Word</li>
+                    <li>Microsoft Excel</li>
+                    <li>Microsoft PowerPoint</li>
+                    <li>Midas Civil</li>
+                    <li>Autodesk Structural Bridge Design</li>
+                    <li>SketchUp</li>
+                    <li>Sidra</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section animate-on-scroll">
+            <h2 class="section-header">HOBBIES</h2>
+            <div class="section-content">
+                <ul>
+                    <li>Football</li>
+                    <li>Chess</li>
+                    <li>Badminton</li>
+                    <li>Jogging</li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="section animate-on-scroll">
+            <h2 class="section-header">LANGUAGES</h2>
+            <div class="section-content">
+                <ul>
+                    <li>English</li>
+                    <li>Bahasa Melayu</li>
+                    <li>Mandarin</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <footer>
+        <!-- your footer content here -->
+        <p>Copyright©️ Lee Yin Tung's Portfolio</p>
+    </footer>
+</body>
+</html>
+<script>
+    // Get a reference to the back-to-top button
+    const backToTopButton = document.querySelector('.back-to-top');
+
+    // Add a click event listener to the button
+    backToTopButton.addEventListener('click', () => {
+        // Scroll to the top of the page
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.topnav');
+
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active1');
+        navigation.classList.toggle('active1');
+        navigation.classList.toggle('hidden'); // add or remove the "hidden" class based on the "active" class
+        const icon = menuToggle.querySelector('i');
+        if (navigation.classList.contains('active1')) {
+            icon.classList.replace('fa-bars', 'fa-times');
+            icon.style.transform = 'rotate(0deg)';
+        } else {
+            icon.classList.replace('fa-times', 'fa-bars');
+            icon.style.transform = 'rotate(0deg)';
+        }
+    });
+</script>
+<script>
+    // Select the elements with the 'animate-on-scroll' class
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+    // Define the intersection observer
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add the 'show' class when the element is visible
+                entry.target.classList.add('show');
+            } else {
+                // Remove the 'show' class when the element is not visible
+                entry.target.classList.remove('show');
+            }
+        });
+    });
+
+    // Observe the animated elements
+    animatedElements.forEach(element => {
+        observer.observe(element);
+   });</script>
